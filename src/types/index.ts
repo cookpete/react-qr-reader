@@ -38,6 +38,10 @@ export type QrReaderProps = {
    * Property that represents a style for the video
    */
   videoStyle?: any;
+  /**
+   * Boolean to enable support for multiple barcode formats, not just QR codes
+   */
+  multiFormat?: boolean;
 };
 
 export type OnResultFunction = (
@@ -72,6 +76,10 @@ export type UseQrReaderHookProps = {
    * Property that represents the ID of the video element
    */
   videoId?: string;
+  /**
+   * Boolean to enable support for multiple barcode formats, not just QR codes
+   */
+  multiFormat?: boolean;
 };
 
 export type UseQrReaderHook = (props: UseQrReaderHookProps) => void;

@@ -15,12 +15,14 @@ export const QrReader: React.FC<QrReaderProps> = ({
   className,
   onResult,
   videoId,
+  multiFormat,
 }) => {
   useQrReader({
     constraints,
     scanDelay,
     onResult,
     videoId,
+    multiFormat,
   });
 
   return (

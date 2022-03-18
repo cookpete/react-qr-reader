@@ -1,5 +1,9 @@
 import { MutableRefObject, useEffect, useRef } from 'react';
-import { BrowserQRCodeReader, IScannerControls } from '@zxing/browser';
+import {
+  BrowserQRCodeReader,
+  BrowserMultiFormatReader,
+  IScannerControls,
+} from '@zxing/browser';
 
 import { UseQrReaderHook } from '../types';
 
@@ -11,11 +15,13 @@ export const useQrReader: UseQrReaderHook = ({
   constraints: video,
   onResult,
   videoId,
+  multiFormat,
 }) => {
   const controlsRef: MutableRefObject<IScannerControls> = useRef(null);
+  const Reader = multiFormat ? BrowserMultiFormatReader : BrowserQRCodeReader;
 
   useEffect(() => {
-    const codeReader = new BrowserQRCodeReader(null, {
+    const codeReader = new Reader(null, {
       delayBetweenScanAttempts,
     });
 
